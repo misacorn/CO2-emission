@@ -5,15 +5,16 @@ import {
   View,
   ImageBackground,
   ScrollView,
-  Image
+  Image,
+  TouchableHighlight,
 } from "react-native";
 import { Dropdown } from "react-native-material-dropdown";
 
 import backSkyImage from "../assets/backskyimage.png";
 import profileIcon from "../assets/icons/profile-icon.png";
-import TipCard from "./TipCard";
+import TipCard from "../components/TipCard";
 
-const Main = () => {
+const Home = props => {
   const [data, setData] = useState([
     {
       value: "Weekly"
@@ -38,7 +39,11 @@ const Main = () => {
       <View style={styles.container}>
         {/* <ScrollView> */}
         <View style={styles.navbar}>
-          <Image style={{ width: 40, height: 40 }} source={profileIcon} />
+          <TouchableHighlight
+            onPress={() => props.navigation.navigate("Profile")}
+          >
+            <Image style={{ width: 40, height: 40 }} source={profileIcon} />
+          </TouchableHighlight>
           <Dropdown
             value={value}
             data={data}
@@ -63,6 +68,8 @@ const Main = () => {
     </ImageBackground>
   );
 };
+
+export default Home;
 
 const styles = StyleSheet.create({
   container: {
@@ -100,5 +107,3 @@ const styles = StyleSheet.create({
     marginTop: 200
   }
 });
-
-export default Main;
