@@ -12,7 +12,11 @@ import { Dropdown } from "react-native-material-dropdown";
 
 import backSkyImage from "../assets/backskyimage.png";
 import profileIcon from "../assets/icons/profile-icon.png";
+<<<<<<< HEAD:Screens/Home.js
 import TipCard from "../components/TipCard";
+=======
+import TipCard from "./TipCard";
+>>>>>>> 490f8642ea40b204b3a826ae8aff75fdd94c1a02:components/Main.js
 
 const Home = props => {
   const [data, setData] = useState([
@@ -39,11 +43,15 @@ const Home = props => {
       <View style={styles.container}>
         {/* <ScrollView> */}
         <View style={styles.navbar}>
+<<<<<<< HEAD:Screens/Home.js
           <TouchableHighlight
             onPress={() => props.navigation.navigate("Profile")}
           >
             <Image style={{ width: 40, height: 40 }} source={profileIcon} />
           </TouchableHighlight>
+=======
+          <Image style={{ width: 40, height: 40 }} source={profileIcon} />
+>>>>>>> 490f8642ea40b204b3a826ae8aff75fdd94c1a02:components/Main.js
           <Dropdown
             value={value}
             data={data}
