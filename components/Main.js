@@ -11,6 +11,7 @@ import { Dropdown } from "react-native-material-dropdown";
 
 import backSkyImage from "../assets/backskyimage.png";
 import profileIcon from "../assets/icons/profile-icon.png";
+import TipCard from "./TipCard";
 
 const Main = () => {
   const [data, setData] = useState([
@@ -34,10 +35,10 @@ const Main = () => {
       source={backSkyImage}
       style={{ width: "100%", height: "100%" }}
     >
-      {/* <ScrollView> */}
       <View style={styles.container}>
+        {/* <ScrollView> */}
         <View style={styles.navbar}>
-          <Image style={{ width: 40, height: 40 }} source={profileIcon}></Image>
+          <Image style={{ width: 40, height: 40 }} source={profileIcon} />
           <Dropdown
             value={value}
             data={data}
@@ -52,17 +53,13 @@ const Main = () => {
           <Text>Heluuuu</Text>
         </View>
         <View style={styles.detailedData}>
-          <View style={styles.cardContainer}>
-            <Text style={{ backgroundColor: "gray", height: 50 }}>
-              #100smartways
-            </Text>
-          </View>
+          <TipCard />
           <View style={styles.dataContainer}>
             <Text>Byeeee</Text>
           </View>
         </View>
+        {/* </ScrollView> */}
       </View>
-      {/* </ScrollView> */}
     </ImageBackground>
   );
 };
@@ -96,14 +93,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white"
   },
-  cardContainer: {
-    position: "absolute",
-    marginTop: -20
-  },
+
   dataContainer: {
     // justifyContent: "center",
     // alignItems: "center"
-    marginTop: 60
+    marginTop: 200
   }
 });
 
