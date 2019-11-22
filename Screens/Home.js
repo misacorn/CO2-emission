@@ -6,17 +6,13 @@ import {
   ImageBackground,
   ScrollView,
   Image,
-  TouchableHighlight,
+  TouchableHighlight
 } from "react-native";
 import { Dropdown } from "react-native-material-dropdown";
 
 import backSkyImage from "../assets/backskyimage.png";
 import profileIcon from "../assets/icons/profile-icon.png";
-<<<<<<< HEAD:Screens/Home.js
 import TipCard from "../components/TipCard";
-=======
-import TipCard from "./TipCard";
->>>>>>> 490f8642ea40b204b3a826ae8aff75fdd94c1a02:components/Main.js
 
 const Home = props => {
   const [data, setData] = useState([
@@ -36,44 +32,45 @@ const Home = props => {
     setValue(data[1].value), [];
   });
   return (
-    <ImageBackground
-      source={backSkyImage}
-      style={{ width: "100%", height: "100%" }}
-    >
-      <View style={styles.container}>
-        {/* <ScrollView> */}
-        <View style={styles.navbar}>
-<<<<<<< HEAD:Screens/Home.js
-          <TouchableHighlight
-            onPress={() => props.navigation.navigate("Profile")}
-          >
-            <Image style={{ width: 40, height: 40 }} source={profileIcon} />
-          </TouchableHighlight>
-=======
-          <Image style={{ width: 40, height: 40 }} source={profileIcon} />
->>>>>>> 490f8642ea40b204b3a826ae8aff75fdd94c1a02:components/Main.js
-          <Dropdown
-            value={value}
-            data={data}
-            pickerStyle={styles.picker}
-            dropdownOffset={{ top: 0, left: 0 }}
-            containerStyle={styles.dropdown}
-            onChangeText={value => setValue(value)}
-            inputContainerStyle={{ borderBottomColor: "transparent" }}
-          />
-        </View>
-        <View style={styles.summaryData}>
-          <Text>Heluuuu</Text>
-        </View>
-        <View style={styles.detailedData}>
-          <TipCard />
-          <View style={styles.dataContainer}>
-            <Text>Byeeee</Text>
+    <ScrollView>
+      <ImageBackground
+        source={backSkyImage}
+        style={{ width: "100%", height: "100%" }}
+      >
+        <View style={styles.container}>
+          <View style={styles.navbar}>
+            <TouchableHighlight
+              onPress={() => props.navigation.navigate("Profile")}
+            >
+              <Image style={{ width: 40, height: 40 }} source={profileIcon} />
+            </TouchableHighlight>
+            <Dropdown
+              value={value}
+              data={data}
+              pickerStyle={styles.picker}
+              dropdownOffset={{ top: 0, left: 0 }}
+              containerStyle={styles.dropdown}
+              onChangeText={value => setValue(value)}
+              inputContainerStyle={{ borderBottomColor: "transparent" }}
+            />
+          </View>
+          <View style={styles.summaryData}>
+            <Text>Heluuuu</Text>
+          </View>
+          <View style={styles.detailedData}>
+            <TipCard />
+            <View style={styles.dataContainer}>
+              <Text>1111</Text>
+              <Text>2222</Text>
+              <Text>3333</Text>
+              <Text>4444</Text>
+              <Text>5555</Text>
+              <Text>6666</Text>
+            </View>
           </View>
         </View>
-        {/* </ScrollView> */}
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </ScrollView>
   );
 };
 
@@ -101,7 +98,8 @@ const styles = StyleSheet.create({
   summaryData: {
     flex: 2,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    minHeight: 300
   },
   detailedData: {
     flex: 2,
@@ -112,6 +110,7 @@ const styles = StyleSheet.create({
   dataContainer: {
     // justifyContent: "center",
     // alignItems: "center"
-    marginTop: 200
+    marginTop: 200,
+    minHeight: 500
   }
 });
