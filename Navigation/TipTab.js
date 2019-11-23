@@ -4,10 +4,9 @@ import {
   Container,
   Tab,
   Tabs,
-  Text,
   TabHeading,
-  Content,
-  Icon
+  Icon,
+  ScrollableTab
 } from "native-base";
 
 import Housing from "../components/tipPage/Housing";
@@ -17,23 +16,20 @@ import Goods from "../components/tipPage/Goods";
 import Leisures from "../components/tipPage/Leisures";
 import Groceries from "../components/tipPage/Groceries";
 
-const EmissionDetails = () => {
+const TipTab = () => {
   return (
     <Container style={styles.container}>
-      <Tabs tabBarUnderlineStyle={{ backgroundColor: "#FFFFFF" }}>
+      <Tabs tabBarUnderlineStyle={{ backgroundColor: "transparent" }}>
         <Tab
           heading={
-            <TabHeading style={{ backgroundColor: "#FFFFFF" }}>
-              <Text style={{ color: "#191919" }}>Categories</Text>
-              {/* <Container>
-                <Content>
-                  <Icon
-                    type="FontAwesome"
-                    name="home"
-                    style={{ color: "#97A5BC" }}
-                  />
-                </Content>
-              </Container> */}
+            <TabHeading
+              style={{ backgroundColor: "#FFFFFF" }}
+              activeTabStyle={{
+                borderBottomColor: "transparent",
+                borderBottomWidth: 0
+              }}
+            >
+              <Icon type="FontAwesome" name="home" />
             </TabHeading>
           }
         >
@@ -41,21 +37,78 @@ const EmissionDetails = () => {
         </Tab>
         <Tab
           heading={
-            <TabHeading style={{ backgroundColor: "#FFFFFF" }}>
-              <Text style={{ color: "#191919" }}>Transactions</Text>
-              {/* <Container>
-                <Content>
-                  <Icon
-                    type="FontAwesome"
-                    name="cutlery"
-                    style={{ color: "#97A5BC" }}
-                  />
-                </Content>
-              </Container> */}
+            <TabHeading
+              style={{ backgroundColor: "#FFFFFF" }}
+              activeTabStyle={{
+                borderBottomColor: "transparent",
+                borderBottomWidth: 0
+              }}
+            >
+              <Icon type="FontAwesome" name="cutlery" />
             </TabHeading>
           }
         >
           <Food />
+        </Tab>
+        <Tab
+          heading={
+            <TabHeading
+              style={{ backgroundColor: "#FFFFFF" }}
+              activeTabStyle={{
+                borderBottomColor: "transparent",
+                borderBottomWidth: 0
+              }}
+            >
+              <Icon type="FontAwesome" name="car" />
+            </TabHeading>
+          }
+        >
+          <Traffic />
+        </Tab>
+        <Tab
+          heading={
+            <TabHeading
+              style={{ backgroundColor: "#FFFFFF" }}
+              activeTabStyle={{
+                borderBottomColor: "transparent",
+                borderBottomWidth: 0
+              }}
+            >
+              <Icon type="FontAwesome" name="shopping-cart" />
+            </TabHeading>
+          }
+        >
+          <Goods />
+        </Tab>
+        <Tab
+          heading={
+            <TabHeading
+              style={{ backgroundColor: "#FFFFFF" }}
+              activeTabStyle={{
+                borderBottomColor: "transparent",
+                borderBottomWidth: 0
+              }}
+            >
+              <Icon type="FontAwesome" name="plane" />
+            </TabHeading>
+          }
+        >
+          <Leisures />
+        </Tab>
+        <Tab
+          heading={
+            <TabHeading
+              style={{ backgroundColor: "#FFFFFF" }}
+              activeTabStyle={{
+                borderBottomColor: "transparent",
+                borderBottomWidth: 0
+              }}
+            >
+              <Icon type="FontAwesome" name="gift" />
+            </TabHeading>
+          }
+        >
+          <Groceries />
         </Tab>
       </Tabs>
     </Container>
@@ -76,4 +129,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default EmissionDetails;
+export default TipTab;

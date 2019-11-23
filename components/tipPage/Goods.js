@@ -1,20 +1,17 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
 import { Container, Content, Icon } from "native-base";
 
 const Goods = () => {
   return (
-    <TouchableOpacity>
-      <Container>
-        <Content>
-          <Icon
-            type="FontAwesome"
-            name="shopping-cart"
-            style={{ color: "#97A5BC" }}
-          />
-        </Content>
-      </Container>
-    </TouchableOpacity>
+    <Container style={{ flex: 1 }}>
+      <Content>
+        <Icon
+          type="FontAwesome"
+          name="shopping-cart"
+          style={{ color: "#97A5BC" }}
+        />
+      </Content>
+    </Container>
   );
 };
 

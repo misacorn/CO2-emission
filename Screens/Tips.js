@@ -7,24 +7,9 @@ import {
   StyleSheet,
   ScrollView
 } from "react-native";
-import {
-  Container,
-  Header,
-  Content,
-  Icon,
-  Tab,
-  Tabs,
-  TabHeading
-} from "native-base";
 
 import arrow from "../assets/icons/arrowhead-left.png";
 import TipTab from "../navigation/TipTab";
-import Housing from "../components/tipPage/Housing";
-import Food from "../components/tipPage/Food";
-import Traffic from "../components/tipPage/Traffic";
-import Goods from "../components/tipPage/Goods";
-import Leisures from "../components/tipPage/Leisures";
-import Groceries from "../components/tipPage/Groceries";
 
 const Tips = ({ navigation }) => {
   return (
@@ -45,16 +30,8 @@ const Tips = ({ navigation }) => {
               To live sustainably
             </Text>
           </View>
-          <View style={styles.tipTab}></View>
         </TouchableOpacity>
-
         <View style={styles.tipTab}>
-          {/* <Housing style={{ flex: 1 }} />
-          <Food style={{ flex: 1 }} />
-          <Traffic style={{ flex: 1 }} />
-          <Goods style={{ flex: 1 }} />
-          <Leisures style={{ flex: 1 }} />
-          <Groceries style={{ flex: 1 }} /> */}
           <TipTab />
         </View>
       </View>
