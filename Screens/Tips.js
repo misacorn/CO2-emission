@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import arrow from "../assets/icons/arrowhead-left.png";
 
-const Profile = ({ navigation }) => {
+const Tips = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -12,7 +12,7 @@ const Profile = ({ navigation }) => {
         <Image style={{ width: 23, height: 23 }} source={arrow} />
       </TouchableOpacity>
       <View style={{ flex: 1 }}>
-        <Text>Profile Details</Text>
+        <Text>ALL THE TIPS HERE</Text>
       </View>
     </View>
   );
@@ -32,4 +32,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Profile;
+export default Tips;

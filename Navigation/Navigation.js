@@ -1,26 +1,18 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
-import Home from "../Screens/Home";
+import Main from "../Screens/Main";
 import Profile from "../Screens/Profile";
+import Tips from "../Screens/Tips";
 
 const Navigation = createStackNavigator(
   {
-    Home: {
-      screen: Home,
-      navigationOptions: {
-        headerTitle: "Home"
-      }
-    },
-    Profile: {
-      screen: Profile,
-      navigationOptions: {
-        headerTitle: "Profile"
-      }
-    }
+    Main: Main,
+    Profile: Profile,
+    Tips: Tips
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Main",
     headerMode: "none"
   }
 );

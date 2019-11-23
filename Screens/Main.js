@@ -6,7 +6,7 @@ import {
   ImageBackground,
   ScrollView,
   Image,
-  TouchableHighlight
+  TouchableOpacity
 } from "react-native";
 import { Dropdown } from "react-native-material-dropdown";
 
@@ -16,7 +16,7 @@ import profileIcon from "../assets/icons/profile-icon.png";
 import TipCard from "../components/TipCard";
 import EmissionDetails from "../components/EmissionDetails";
 
-const Home = ({ navigation }) => {
+const Main = ({ navigation }) => {
   console.log(navigation);
 
   const [data, setData] = useState([
@@ -43,9 +43,9 @@ const Home = ({ navigation }) => {
       >
         <View style={styles.container}>
           <View style={styles.navbar}>
-            <TouchableHighlight onPress={() => navigation.navigate("Profile")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
               <Image style={{ width: 40, height: 40 }} source={profileIcon} />
-            </TouchableHighlight>
+            </TouchableOpacity>
             <Dropdown
               value={value}
               data={data}
@@ -60,7 +60,7 @@ const Home = ({ navigation }) => {
             <Text>Heluuuu</Text>
           </View>
           <View style={styles.detailedData}>
-            <TipCard />
+            <TipCard navigation={navigation} />
             <View style={styles.dataContainer}>
               <EmissionDetails />
             </View>
@@ -71,7 +71,7 @@ const Home = ({ navigation }) => {
   );
 };
 
-export default Home;
+export default Main;
 
 const styles = StyleSheet.create({
   container: {
