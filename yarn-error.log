@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /Users/misacorn/.yarn/bin/yarnpkg add expo-cli 3.9.0
+  /usr/local/bin/node /Users/misacorn/.yarn/bin/yarn.js
 
 PATH: 
   /Users/misacorn/.yarn/bin:/Users/misacorn/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/misacorn/.yarn/bin:/Users/misacorn/.config/yarn/global/node_modules/.bin
@@ -14,17 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/3.9.0: Not found
-      at Request.params.callback [as _callback] (/Users/misacorn/.yarn/lib/cli.js:66830:18)
-      at Request.self.callback (/Users/misacorn/.yarn/lib/cli.js:140464:22)
-      at Request.emit (events.js:189:13)
-      at Request.<anonymous> (/Users/misacorn/.yarn/lib/cli.js:141436:10)
-      at Request.emit (events.js:189:13)
-      at IncomingMessage.<anonymous> (/Users/misacorn/.yarn/lib/cli.js:141358:12)
-      at Object.onceWrapper (events.js:277:13)
-      at IncomingMessage.emit (events.js:194:15)
-      at endReadableNT (_stream_readable.js:1125:12)
-      at process._tickCallback (internal/process/next_tick.js:63:19)
+  Error: ENOENT: no such file or directory, open '/Users/misacorn/Library/Caches/Yarn/v4/npm-os-aindir-1.0.2-ffbc4988336e0e833de0c168c7ef152121aa7fb3/node_modules/os-Maindir/.yarn-metadata.json'
 
 npm manifest: 
   {
@@ -43,7 +33,6 @@ npm manifest:
       "react": "16.8.3",
       "react-dom": "16.8.3",
       "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
-      "react-native-gesture-handler": "^1.5.1",
       "react-native-material-dropdown": "^0.11.1",
       "react-native-reanimated": "^1.4.0",
       "react-native-web": "^0.11.7",

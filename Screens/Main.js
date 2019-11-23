@@ -13,8 +13,8 @@ import { Dropdown } from "react-native-material-dropdown";
 import backSkyImage from "../assets/backskyimage.png";
 import profileIcon from "../assets/icons/profile-icon.png";
 
-import TipCard from "../components/TipCard";
-import EmissionDetails from "../components/EmissionDetails";
+import TipCard from "../components/mainPage/TipCard";
+import EmissionTab from "../navigation/EmissionTab";
 
 const Main = ({ navigation }) => {
   console.log(navigation);
@@ -62,7 +62,7 @@ const Main = ({ navigation }) => {
           <View style={styles.detailedData}>
             <TipCard navigation={navigation} />
             <View style={styles.dataContainer}>
-              <EmissionDetails />
+              <EmissionTab />
             </View>
           </View>
         </View>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   dataContainer: {
     // justifyContent: "center",
     // alignItems: "center"
-    marginTop: 100,
+    marginTop: 70,
     minHeight: 500
   }
 });

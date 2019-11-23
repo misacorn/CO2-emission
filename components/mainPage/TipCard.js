@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 
-import hiking from "../assets/hiking.png";
+import hiking from "../../assets/hiking.png";
 
 const TipCard = ({ navigation }) => {
   return (

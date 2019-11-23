@@ -2,8 +2,8 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { Container, Tab, Tabs, Text, TabHeading } from "native-base";
 
-import Categories from "./Categories";
-import Transactions from "./Transactions";
+import Categories from "../components/mainPage/Categories";
+import Transactions from "../components/mainPage/Transactions";
 
 const EmissionDetails = () => {
   return (

@@ -1,8 +1,8 @@
 //This is for testing Tab Navigation from React Navigation
 
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
-import Categories from "../components/Categories";
-import Transactions from "../components/Transactions";
+import Categories from "../components/mainPage/Categories";
+import Transactions from "../components/mainPageTransactions";
 
 const EmissionTabNavigation = createMaterialTopTabNavigator(
   {
