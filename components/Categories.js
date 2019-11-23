@@ -1,20 +1,18 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const ConsumptionDetails = () => {
+const Categories = () => {
   return (
     <View style={styles.container}>
-      <Text>Gud Bye</Text>
+      <Text>Categories here</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+    flex: 1
   }
 });
 
-export default ConsumptionDetails;
+export default Categories;

@@ -12,9 +12,13 @@ import { Dropdown } from "react-native-material-dropdown";
 
 import backSkyImage from "../assets/backskyimage.png";
 import profileIcon from "../assets/icons/profile-icon.png";
-import TipCard from "../components/TipCard";
 
-const Home = props => {
+import TipCard from "../components/TipCard";
+import EmissionDetails from "../components/EmissionDetails";
+
+const Home = ({ navigation }) => {
+  console.log(navigation);
+
   const [data, setData] = useState([
     {
       value: "Weekly"
@@ -39,9 +43,7 @@ const Home = props => {
       >
         <View style={styles.container}>
           <View style={styles.navbar}>
-            <TouchableHighlight
-              onPress={() => props.navigation.navigate("Profile")}
-            >
+            <TouchableHighlight onPress={() => navigation.navigate("Profile")}>
               <Image style={{ width: 40, height: 40 }} source={profileIcon} />
             </TouchableHighlight>
             <Dropdown
@@ -60,12 +62,7 @@ const Home = props => {
           <View style={styles.detailedData}>
             <TipCard />
             <View style={styles.dataContainer}>
-              <Text>1111</Text>
-              <Text>2222</Text>
-              <Text>3333</Text>
-              <Text>4444</Text>
-              <Text>5555</Text>
-              <Text>6666</Text>
+              <EmissionDetails />
             </View>
           </View>
         </View>
@@ -110,7 +107,7 @@ const styles = StyleSheet.create({
   dataContainer: {
     // justifyContent: "center",
     // alignItems: "center"
-    marginTop: 200,
+    marginTop: 100,
     minHeight: 500
   }
 });

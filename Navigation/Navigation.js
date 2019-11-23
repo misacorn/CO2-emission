@@ -4,17 +4,27 @@ import { createStackNavigator } from "react-navigation-stack";
 import Home from "../Screens/Home";
 import Profile from "../Screens/Profile";
 
-const AppContainer = createAppContainer(
-  createStackNavigator(
-    {
-      Home: Home,
-      Profile: Profile
+const Navigation = createStackNavigator(
+  {
+    Home: {
+      screen: Home,
+      navigationOptions: {
+        headerTitle: "Home"
+      }
     },
-    {
-      initialRouteName: "Profile",
-      headerMode: "none"
+    Profile: {
+      screen: Profile,
+      navigationOptions: {
+        headerTitle: "Profile"
+      }
     }
-  )
+  },
+  {
+    initialRouteName: "Home",
+    headerMode: "none"
+  }
 );
+
+const AppContainer = createAppContainer(Navigation);
 
 export default AppContainer;

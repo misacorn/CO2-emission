@@ -7,11 +7,7 @@ const TipCard = () => {
   return (
     <View style={styles.cardContainer}>
       <View style={styles.tipImage}>
-<<<<<<< HEAD
-        <Image style={{ width: 65, height: 45 }} source={hiking} />
-=======
         <Image style={{ width: 75, height: 55 }} source={hiking} />
->>>>>>> 490f8642ea40b204b3a826ae8aff75fdd94c1a02
       </View>
       <View style={styles.tipText}>
         <Text
@@ -34,11 +30,7 @@ const TipCard = () => {
 const styles = StyleSheet.create({
   cardContainer: {
     position: "absolute",
-<<<<<<< HEAD
     marginTop: -50,
-=======
-    marginTop: -35,
->>>>>>> 490f8642ea40b204b3a826ae8aff75fdd94c1a02
     flexDirection: "row",
     borderRadius: 10,
     borderWidth: 1,
