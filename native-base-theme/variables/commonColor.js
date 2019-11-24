@@ -150,7 +150,7 @@ export default {
 
   // Font
   DefaultFontSize: 16,
-  fontFamily: "System",
+  fontFamily:"System",
   fontSizeBase: 15,
   get fontSizeH1() {
     return this.fontSizeBase * 1.8;
@@ -264,7 +264,7 @@ export default {
   topTabBarActiveBorderColor: platform === PLATFORM.IOS ? "#007aff" : "#fff",
 
   // Tabs
-  tabBgColor: "#fff",
+  tabBgColor: "#F8F8F8",
   tabFontSize: 15,
 
   // Text

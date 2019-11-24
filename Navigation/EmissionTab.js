@@ -19,7 +19,10 @@ const EmissionDetails = () => {
   return (
     <StyleProvider style={getTheme(material)}>
       <Container style={styles.container}>
-        <Tabs tabBarUnderlineStyle={{ backgroundColor: "#191919" }}>
+        <Tabs
+          style={{ borderColor: "#97A5BC" }}
+          tabBarUnderlineStyle={{ backgroundColor: "#191919" }}
+        >
           <Tab
             heading={
               <TabHeading>

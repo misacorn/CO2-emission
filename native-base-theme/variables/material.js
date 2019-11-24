@@ -253,14 +253,11 @@ export default {
   tabDefaultBg: "#fff",
   topTabBarTextColor: "#97A5BC",
   topTabBarActiveTextColor: "#38A3D1",
-  tabDefaultBg: "#3F51B5",
-  topTabBarTextColor: "#b3c7f9",
-  topTabBarActiveTextColor: "#fff",
   topTabBarBorderColor: "#fff",
   topTabBarActiveBorderColor: "#fff",
 
   // Tabs
-  tabBgColor: "#FFFFFF",
+  tabBgColor: "#fff",
   tabFontSize: 15,
 
   // Text

@@ -134,7 +134,6 @@ export default {
 
   // Color
   brandPrimary: platform === PLATFORM.IOS ? "#007aff" : "#3F51B5",
-  brandPrimary: platform === PLATFORM.IOS ? "#97A5BC" : "#3F51B5",
   brandInfo: "#62B1F6",
   brandSuccess: "#5cb85c",
   brandDanger: "#d9534f",
@@ -284,7 +283,7 @@ export default {
   tabDefaultBg: platform === PLATFORM.IOS ? "#F8F8F8" : "#3F51B5",
   topTabBarTextColor: platform === PLATFORM.IOS ? "#6b6b6b" : "#b3c7f9",
   topTabBarActiveTextColor: platform === PLATFORM.IOS ? "#007aff" : "#fff",
-  topTabBarBorderColor: platform === PLATFORM.IOS ? "#a7a6ab" : "#fff",
+  topTabBarBorderColor: platform === PLATFORM.IOS ? "#97A5BC" : "#fff",
   topTabBarActiveBorderColor: platform === PLATFORM.IOS ? "#007aff" : "#fff",
 
   // Tabs
@@ -293,7 +292,6 @@ export default {
 
   // Text
   textColor: "#000",
-  textColor: "#97A5BC",
   inverseTextColor: "#fff",
   noteFontSize: 14,
   get defaultTextColor() {
