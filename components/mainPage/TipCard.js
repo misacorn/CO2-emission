@@ -10,7 +10,7 @@ const TipCard = ({ navigation }) => {
       onPress={() => navigation.navigate("Tips")}
     >
       <View style={styles.tipImage}>
-        <Image style={{ width: 75, height: 55 }} source={hiking} />
+        <Image style={{ width: 70, height: 50 }} source={hiking} />
       </View>
       <View>
         <View style={styles.tipText}>

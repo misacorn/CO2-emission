@@ -15,7 +15,6 @@ const ThemeExample = () => (
   <Container style={styles.container}>
     <Tabs tabBarUnderlineStyle={{ backgroundColor: "transparent" }}>
       <Tab
-        style={{ border: 0 }}
         heading={
           <TabHeading>
             <Icon type="FontAwesome" name="home" />
@@ -66,10 +65,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: 20,
     marginRight: "auto",
-    marginBottom: 25,
-    width: "95%"
+    marginBottom: 20,
+    width: "95%",
+    maxHeight: 60
   }
 });
 
