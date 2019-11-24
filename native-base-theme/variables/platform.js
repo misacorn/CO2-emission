@@ -134,6 +134,7 @@ export default {
 
   // Color
   brandPrimary: platform === PLATFORM.IOS ? "#007aff" : "#3F51B5",
+  brandPrimary: platform === PLATFORM.IOS ? "#97A5BC" : "#3F51B5",
   brandInfo: "#62B1F6",
   brandSuccess: "#5cb85c",
   brandDanger: "#d9534f",
@@ -292,6 +293,7 @@ export default {
 
   // Text
   textColor: "#000",
+  textColor: "#97A5BC",
   inverseTextColor: "#fff",
   noteFontSize: 14,
   get defaultTextColor() {
