@@ -3,12 +3,11 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image,
   StyleSheet,
   ScrollView
 } from "react-native";
+import { Icon } from "native-base";
 
-import arrow from "../assets/icons/arrowhead-left.png";
 import TipTab from "../navigation/TipTab";
 
 const Tips = ({ navigation }) => {
@@ -20,7 +19,7 @@ const Tips = ({ navigation }) => {
           style={styles.backToMain}
         >
           <View style={{ flex: 1 }}>
-            <Image style={{ width: 23, height: 23 }} source={arrow} />
+            <Icon type="AntDesign" name="left" />
           </View>
           <View style={styles.header}>
             <Text style={{ color: "#354052", fontSize: 18, marginBottom: 5 }}>
@@ -56,8 +55,7 @@ const styles = StyleSheet.create({
     flex: 2.25
   },
   tipTab: {
-    flex: 1,
-    margin: 20
+    flex: 1
   }
 });
 

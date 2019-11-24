@@ -12,7 +12,7 @@ const Navigation = createStackNavigator(
     Tips: Tips
   },
   {
-    initialRouteName: "Tips",
+    initialRouteName: "Main",
     headerMode: "none"
   }
 );

@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
-import arrow from "../assets/icons/arrowhead-left.png";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { Icon } from "native-base";
 
 const Profile = ({ navigation }) => {
   return (
@@ -9,7 +9,7 @@ const Profile = ({ navigation }) => {
         onPress={() => navigation.navigate("Main")}
         style={styles.arrowBack}
       >
-        <Image style={{ width: 23, height: 23 }} source={arrow} />
+        <Icon type="AntDesign" name="left" />
       </TouchableOpacity>
       <View style={{ flex: 1 }}>
         <Text>Profile Details</Text>
