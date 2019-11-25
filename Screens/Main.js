@@ -17,7 +17,6 @@ import TipCard from "../components/mainPage/TipCard";
 import EmissionTab from "../navigation/EmissionTab";
 
 const Main = ({ navigation }) => {
-  console.log(navigation);
 
   const [data, setData] = useState([
     {

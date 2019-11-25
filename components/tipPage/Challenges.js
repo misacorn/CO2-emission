@@ -9,7 +9,9 @@ import smallGlobe from "../../assets/icons/small-globe.png";
 const Challenges = () => {
   return (
     <View style={styles.container}>
-      <Text style={{ color: "#97A5BC", fontSize: 14 }}>Challenges</Text>
+      <Text style={{ color: "#97A5BC", fontSize: 14, fontWeight: "bold" }}>
+        Challenges
+      </Text>
       <Container style={styles.globes}>
         <Tabs tabBarUnderlineStyle={{ backgroundColor: "transparent" }}>
           <Tab
@@ -55,7 +57,8 @@ const styles = StyleSheet.create({
   globes: {
     flex: 1,
     flexDirection: "row",
-    maxWidth: 170
+    maxWidth: 170,
+    marginTop: 20
   }
 });
 

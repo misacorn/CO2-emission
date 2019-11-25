@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Content, Icon } from "native-base";
 
-const Traffic = () => {
+const Mobility = () => {
   return (
     <Container style={{ flex: 1 }}>
       <Content>
@@ -11,4 +11,4 @@ const Traffic = () => {
   );
 };
 
-export default Traffic;
+export default Mobility;
