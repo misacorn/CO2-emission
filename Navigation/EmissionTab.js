@@ -15,12 +15,12 @@ import Transactions from "../components/mainPage/Transactions";
 import getTheme from "../native-base-theme/components";
 import material from "../native-base-theme/variables/material";
 
-const EmissionDetails = () => {
+const EmissionDetails = ({ timePeriod }) => {
   return (
     <StyleProvider style={getTheme(material)}>
       <Container style={styles.container}>
         <Tabs
-          style={{ borderColor: "#97A5BC" }}
+          style={{ borderColor: "#97A5BC", paddingLeft: 5, paddingRight: 5 }}
           tabBarUnderlineStyle={{ backgroundColor: "#191919" }}
         >
           <Tab
@@ -30,7 +30,7 @@ const EmissionDetails = () => {
               </TabHeading>
             }
           >
-            <Categories />
+            <Categories timePeriod={timePeriod} />
           </Tab>
           <Tab
             heading={
@@ -39,7 +39,7 @@ const EmissionDetails = () => {
               </TabHeading>
             }
           >
-            <Transactions />
+            <Transactions timePeriod={timePeriod} />
           </Tab>
         </Tabs>
       </Container>
@@ -49,15 +49,14 @@ const EmissionDetails = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: "100%",
     justifyContent: "center",
     alignItems: "center",
     paddingRight: 20,
     paddingLeft: 20,
     marginTop: 10,
     marginRight: "auto",
-    marginBottom: 25,
-    width: "95%"
+    marginBottom: 25
   }
 });
 

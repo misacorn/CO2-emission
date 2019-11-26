@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { FlatList, View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { Icon } from "native-base";
 
+import { STATUS } from "../../utils";
 import config from "../../config";
+import { listByDomainUrl } from "../../api/listByDomain";
 
-const Categories = () => {
+const Categories = ({ timePeriod }) => {
+  const [status, setStatus] = useState(STATUS.REQUEST);
+  const [error, setError] = useState("");
   const [domains, setDomains] = useState([]);
 
   useEffect(() => {
-    const url = `${config.BASE_URL}/v1/byDomain/${config.CUSTOMER_ID}?auditUser=${config.AUDIT_USER}&timePeriod=Monthly`;
+    const url = listByDomainUrl(timePeriod);
     fetch(url, {
       method: "GET",
       headers: {
@@ -15,34 +20,82 @@ const Categories = () => {
       }
     })
       .then(response => response.json())
-      .then(responseJson => setDomains(responseJson.listbyDomain))
+      .then(responseJson => {
+        setStatus(STATUS.SUCCESS);
+        setDomains(responseJson.listbyDomain);
+      })
       .catch(error => {
-        console.error(error);
+        setStatus(STATUS.ERROR);
+        setError(error);
       });
-  }, []);
+  }, [timePeriod]);
+
+  const abc = () =>
+    domains.map(domain => (
+      <View key={domain.domain} style={styles.categorieRow}>
+        <Icon
+          type="FontAwesome"
+          name="cutlery"
+          style={{
+            marginRight: 10,
+            color: "#97a5bc"
+          }}
+        />
+        <View style={{ flex: 1, marginRight: 10 }}>
+          <View
+            style={{
+              justifyContent: "space-between",
+              width: "100%",
+              flex: 1,
+              flexDirection: "row"
+            }}
+          >
+            <Text style={{ fontWeight: "bold" }}>{domain.domain}</Text>
+            <Text style={{ color: "#97a5bc" }}>
+              -{domain.transactionAmount}€
+            </Text>
+          </View>
+          <View
+            style={{
+              justifyContent: "space-between",
+              width: "100%",
+              flex: 1,
+              flexDirection: "row"
+            }}
+          >
+            <Text style={{ color: "#97a5bc" }}>This Month</Text>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={{ fontWeight: "bold" }}>{domain.co2Amount}kg </Text>
+              <Text>CO2</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    ));
 
   return (
-    <View style={styles.container}>
-      {domains.length > 0 && (
-        <FlatList
-          data={domains}
-          renderItem={({ item }) => {
-            return (
-              <View>
-                <Text>{item.co2Amount}</Text>
-              </View>
-            );
-          }}
-          keyExtractor={item => item.domain}
-        />
+    <>
+      {status === STATUS.REQUEST && <Text>Loading...</Text>}
+      {status === STATUS.SUCCESS && domains.length > 0 && (
+        <View style={styles.container}>{abc()}</View>
       )}
-    </View>
+      {status === STATUS.ERROR && <Text className="error">{error}</Text>}
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    marginLeft: 10,
+    marginRight: 10
+  },
+  categorieRow: {
+    flexDirection: "row",
+    marginTop: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    minHeight: 60
   }
 });
 

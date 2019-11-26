@@ -17,8 +17,7 @@ import TipCard from "../components/mainPage/TipCard";
 import EmissionTab from "../navigation/EmissionTab";
 
 const Main = ({ navigation }) => {
-
-  const [data, setData] = useState([
+  const data = [
     {
       value: "Weekly"
     },
@@ -28,12 +27,9 @@ const Main = ({ navigation }) => {
     {
       value: "Yearly"
     }
-  ]);
-  const [value, setValue] = useState("");
+  ];
+  const [value, setValue] = useState(data[1].value);
 
-  useEffect(() => {
-    setValue(data[1].value), [];
-  });
   return (
     <ScrollView>
       <ImageBackground
@@ -46,8 +42,8 @@ const Main = ({ navigation }) => {
               <Image style={{ width: 40, height: 40 }} source={profileIcon} />
             </TouchableOpacity>
             <Dropdown
-              value={value}
               data={data}
+              value={value}
               pickerStyle={styles.picker}
               dropdownOffset={{ top: 0, left: 0 }}
               containerStyle={styles.dropdown}
@@ -61,7 +57,7 @@ const Main = ({ navigation }) => {
           <View style={styles.detailedData}>
             <TipCard navigation={navigation} />
             <View style={styles.dataContainer}>
-              <EmissionTab />
+              <EmissionTab timePeriod={value} />
             </View>
           </View>
         </View>
@@ -92,21 +88,17 @@ const styles = StyleSheet.create({
     width: "25%"
   },
   summaryData: {
-    flex: 2,
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     minHeight: 300
   },
   detailedData: {
-    flex: 2,
+    flex: 1,
     alignItems: "center",
     backgroundColor: "white"
   },
-
   dataContainer: {
-    // justifyContent: "center",
-    // alignItems: "center"
-    marginTop: 70,
-    minHeight: 500
+    marginTop: 70
   }
 });
