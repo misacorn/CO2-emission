@@ -6,6 +6,25 @@ import { STATUS } from "../../utils";
 import config from "../../config";
 import { listByDomainUrl } from "../../api/listByDomain";
 
+const getIcon = domain => {
+  switch (domain) {
+    case "Leisure":
+      return "plane";
+    case "Services":
+      return "gift";
+    case "Goods":
+      return "shopping-cart";
+    case "Mobility":
+      return "car";
+    case "Housing":
+      return "home";
+    case "Food":
+      return "cutlery";
+    default:
+      return null;
+  }
+};
+
 const Categories = ({ timePeriod }) => {
   const [status, setStatus] = useState(STATUS.REQUEST);
   const [error, setError] = useState("");
@@ -30,39 +49,25 @@ const Categories = ({ timePeriod }) => {
       });
   }, [timePeriod]);
 
-  const abc = () =>
+  const showCategories = () =>
     domains.map(domain => (
       <View key={domain.domain} style={styles.categorieRow}>
         <Icon
           type="FontAwesome"
-          name="cutlery"
+          name={getIcon(domain.domain)}
           style={{
             marginRight: 10,
             color: "#97a5bc"
           }}
         />
         <View style={{ flex: 1, marginRight: 10 }}>
-          <View
-            style={{
-              justifyContent: "space-between",
-              width: "100%",
-              flex: 1,
-              flexDirection: "row"
-            }}
-          >
+          <View style={styles.dataRow}>
             <Text style={{ fontWeight: "bold" }}>{domain.domain}</Text>
             <Text style={{ color: "#97a5bc" }}>
               -{domain.transactionAmount}€
             </Text>
           </View>
-          <View
-            style={{
-              justifyContent: "space-between",
-              width: "100%",
-              flex: 1,
-              flexDirection: "row"
-            }}
-          >
+          <View style={styles.dataRow}>
             <Text style={{ color: "#97a5bc" }}>This Month</Text>
             <View style={{ flexDirection: "row" }}>
               <Text style={{ fontWeight: "bold" }}>{domain.co2Amount}kg </Text>
@@ -77,7 +82,7 @@ const Categories = ({ timePeriod }) => {
     <>
       {status === STATUS.REQUEST && <Text>Loading...</Text>}
       {status === STATUS.SUCCESS && domains.length > 0 && (
-        <View style={styles.container}>{abc()}</View>
+        <View style={styles.container}>{showCategories()}</View>
       )}
       {status === STATUS.ERROR && <Text className="error">{error}</Text>}
     </>
@@ -96,6 +101,12 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     minHeight: 60
+  },
+  dataRow: {
+    justifyContent: "space-between",
+    // width: "100%",
+    flex: 1,
+    flexDirection: "row"
   }
 });
 

@@ -20,7 +20,7 @@ const EmissionDetails = ({ timePeriod }) => {
     <StyleProvider style={getTheme(material)}>
       <Container style={styles.container}>
         <Tabs
-          style={{ borderColor: "#97A5BC", paddingLeft: 5, paddingRight: 5 }}
+          style={{ borderColor: "#97A5BC", marginLeft: 10, marginRight: 10 }}
           tabBarUnderlineStyle={{ backgroundColor: "#191919" }}
         >
           <Tab

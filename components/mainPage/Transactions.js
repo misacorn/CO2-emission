@@ -3,22 +3,25 @@ import { View, Text, StyleSheet } from "react-native";
 import { Icon } from "native-base";
 import moment from "moment";
 
+import { STATUS } from "../../utils";
 import config from "../../config";
 import { transactionsByDomain } from "../../api/transactionsByDomain";
-
-const _ = require("lodash");
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD":
-      return { transactions: [...state.transactions, ...action.transactions] };
+      return {
+        transactions: [...state.transactions, ...action.transactions],
+        status: STATUS.SUCCESS
+      };
     default:
       return state;
   }
 };
 
 const initialState = {
-  transactions: []
+  transactions: [],
+  status: STATUS.REQUEST
 };
 
 const Transactions = ({ timePeriod }) => {
@@ -32,8 +35,6 @@ const Transactions = ({ timePeriod }) => {
   ];
 
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  // console.log({state});
 
   useEffect(() => {
     const urls = domains.map(domain =>
@@ -49,7 +50,11 @@ const Transactions = ({ timePeriod }) => {
       })
         .then(res => res.json())
         .then(res => {
-          dispatch({ type: "ADD", transactions: res.listbyTransaction });
+          dispatch({
+            type: "ADD",
+            transactions: res.listbyTransaction,
+            status: STATUS.SUCCESS
+          });
         })
         .catch(error => console.log(error))
     );
@@ -86,26 +91,12 @@ const Transactions = ({ timePeriod }) => {
             color: "#97a5bc"
           }}
         />
-        <View style={{ flex: 1, marginRight: 10 }}>
-          <View
-            style={{
-              justifyContent: "space-between",
-              width: "100%",
-              flex: 1,
-              flexDirection: "row"
-            }}
-          >
+        <View style={{ flex: 1 }}>
+          <View style={styles.dataRow}>
             <Text style={{ fontWeight: "bold" }}>{t.merchantName}</Text>
             <Text style={{ color: "#97a5bc" }}>-{t.transactionAmount}€</Text>
           </View>
-          <View
-            style={{
-              justifyContent: "space-between",
-              width: "100%",
-              flex: 1,
-              flexDirection: "row"
-            }}
-          >
+          <View style={styles.dataRow}>
             <Text style={{ color: "#97a5bc" }}>
               {moment(t.createdTime).format("DD-MM-YYYY")}
             </Text>
@@ -118,7 +109,15 @@ const Transactions = ({ timePeriod }) => {
       </View>
     ));
 
-  return <View style={styles.container}>{showTransactions()}</View>;
+  return (
+    <>
+      {state.status === STATUS.REQUEST && <Text>Loading...</Text>}
+      {state.status === STATUS.SUCCESS && state.transactions.length > 0 && (
+        <View style={styles.container}>{showTransactions()}</View>
+      )}
+      {state.status === STATUS.ERROR && <Text className="error">{error}</Text>}
+    </>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -133,6 +132,12 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     minHeight: 60
+  },
+  dataRow: {
+    justifyContent: "space-between",
+    // width: "100%",
+    flex: 1,
+    flexDirection: "row"
   }
 });
 
