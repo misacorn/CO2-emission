@@ -19,10 +19,10 @@ const Categories = ({ timePeriod }) => {
         Authorization: `${config.AUTHORIZATION}`
       }
     })
-      .then(response => response.json())
-      .then(responseJson => {
+      .then(res => res.json())
+      .then(res => {
         setStatus(STATUS.SUCCESS);
-        setDomains(responseJson.listbyDomain);
+        setDomains(res.listbyDomain);
       })
       .catch(error => {
         setStatus(STATUS.ERROR);
