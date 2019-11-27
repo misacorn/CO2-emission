@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { Icon } from "native-base";
 import moment from "moment";
 
 import config from "../../config";
@@ -74,18 +75,64 @@ const Transactions = ({ timePeriod }) => {
       .values()
   ];
 
+  const showTransactions = () =>
+    transactionsByDate.map(t => (
+      <View key={t.transactionId} style={styles.categorieRow}>
+        <Icon
+          type="FontAwesome"
+          name="cutlery"
+          style={{
+            marginRight: 10,
+            color: "#97a5bc"
+          }}
+        />
+        <View style={{ flex: 1, marginRight: 10 }}>
+          <View
+            style={{
+              justifyContent: "space-between",
+              width: "100%",
+              flex: 1,
+              flexDirection: "row"
+            }}
+          >
+            <Text style={{ fontWeight: "bold" }}>{t.merchantName}</Text>
+            <Text style={{ color: "#97a5bc" }}>-{t.transactionAmount}€</Text>
+          </View>
+          <View
+            style={{
+              justifyContent: "space-between",
+              width: "100%",
+              flex: 1,
+              flexDirection: "row"
+            }}
+          >
+            <Text style={{ color: "#97a5bc" }}>
+              {moment(t.createdTime).format("DD-MM-YYYY")}
+            </Text>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={{ fontWeight: "bold" }}>{t.co2Amount}kg </Text>
+              <Text>CO2</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    ));
 
-
-  return (
-    <View style={styles.container}>
-      <Text>Transactions there</Text>
-    </View>
-  );
+  return <View style={styles.container}>{showTransactions()}</View>;
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    marginLeft: 10,
+    marginRight: 10
+  },
+  categorieRow: {
+    flexDirection: "row",
+    marginTop: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    minHeight: 60
   }
 });
 
