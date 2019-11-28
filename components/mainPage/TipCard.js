@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    position: "absolute",
-    marginTop: -50,
+    // position: "absolute",
+ //   marginTop: 25,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "transparent",

@@ -54,9 +54,9 @@ const Main = ({ navigation }) => {
           </View>
           <View style={styles.summaryData}>
             <EmissionSummary timePeriod={value} />
+            <TipCard navigation={navigation} />
           </View>
           <View style={styles.detailedData}>
-            <TipCard navigation={navigation} />
             <View style={styles.dataContainer}>
               <EmissionTab timePeriod={value} />
             </View>
@@ -89,15 +89,18 @@ const styles = StyleSheet.create({
     width: "25%"
   },
   summaryData: {
-    flex: 1,
+    flex: 2,
     justifyContent: "center",
     alignItems: "center",
-    minHeight: 400
+    minHeight: 400,
+    marginTop: -50
   },
   detailedData: {
-    flex: 1,
+    flex: 2,
     alignItems: "center",
-    backgroundColor: "white"
+    backgroundColor: "white",
+    marginTop: -70,
+    zIndex: -1
   },
   dataContainer: {
     marginTop: 70

@@ -5,7 +5,7 @@ import { STATUS } from "../../utils";
 import config from "../../config";
 import { listByDomainUrl } from "../../api/listByDomain";
 
-import DataChart from "./DataChart-VictoryChart";
+import DataChart from "./DataChart";
 
 const getTime = timePeriod => {
   switch (timePeriod) {
@@ -45,19 +45,15 @@ const EmissionSummary = ({ timePeriod }) => {
       });
   }, [timePeriod]);
 
-  console.log({ amountPerDomain });
-
   const showTotalAmount = () => (
     <Text style={{ color: "white", fontSize: 30 }}>{totalCo2Amount}.00</Text>
   );
 
   return (
-    // <View style={styles.container}>
-    // </View>
     <>
       {status === STATUS.REQUEST && <Text>Loading...</Text>}
       {status === STATUS.SUCCESS && amountPerDomain.length === 0 && (
-        <View style={styles.container}>
+        <View style={[styles.container]}>
           <Text style={{ textTransform: "uppercase", color: "white" }}>
             {getTime(timePeriod)}
           </Text>
@@ -70,7 +66,7 @@ const EmissionSummary = ({ timePeriod }) => {
       )}
       {status === STATUS.SUCCESS && amountPerDomain.length > 0 && (
         <View style={styles.container}>
-          <DataChart style={{ flex: 1 }} />
+          <DataChart />
           <View style={styles.dataText}>
             <Text style={{ textTransform: "uppercase", color: "white" }}>
               {getTime(timePeriod)}
@@ -91,15 +87,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-    marginTop: -100
+    alignItems: "center"
   },
   dataText: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
-    marginTop: -100
+    lineHeight: 1.43,
+    letterSpacing: 0.0107
   }
 });
 

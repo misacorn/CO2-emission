@@ -7,22 +7,28 @@ import { STATUS } from "../../utils";
 import config from "../../config";
 import { transactionsByDomain } from "../../api/transactionsByDomain";
 
+const initialState = {
+  transactions: [],
+  status: STATUS.REQUEST,
+  error: ""
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD":
       return {
-        transactions: [...state.transactions, ...action.transactions],
+        transactions: [...state.transactions, ...action.transactions]
+      };
+    case "RESET":
+      return initialState;
+    case "SUCCESS_STATUS":
+      return {
+        ...state,
         status: STATUS.SUCCESS
       };
     default:
       return state;
   }
-};
-
-const initialState = {
-  transactions: [],
-  status: STATUS.REQUEST,
-  error: ""
 };
 
 const Transactions = ({ timePeriod }) => {
@@ -38,6 +44,8 @@ const Transactions = ({ timePeriod }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
+    dispatch({ type: "RESET" });
+
     const urls = domains.map(domain =>
       transactionsByDomain(timePeriod, domain)
     );
@@ -53,10 +61,12 @@ const Transactions = ({ timePeriod }) => {
         .then(res => {
           dispatch({
             type: "ADD",
-            transactions: res.listbyTransaction,
-            status: STATUS.SUCCESS
+            transactions: res.listbyTransaction
           });
         })
+        .then(() =>
+          dispatch({ type: "SUCCESS_STATUS", status: STATUS.SUCCESS })
+        )
         .catch(error => console.log(error))
     );
   }, [timePeriod]);
@@ -109,8 +119,6 @@ const Transactions = ({ timePeriod }) => {
         </View>
       </View>
     ));
-
-  console.log(timePeriod);
 
   return (
     <>
