@@ -15,11 +15,24 @@ const getIcon = domain => {
     case "Goods":
       return "shopping-cart";
     case "Mobility":
-      return "car";
+      return "bus";
     case "Housing":
       return "home";
     case "Food":
       return "cutlery";
+    default:
+      return null;
+  }
+};
+
+const getTime = timePeriod => {
+  switch (timePeriod) {
+    case "Weekly":
+      return "This Week";
+    case "Monthly":
+      return "This Month";
+    case "Yearly":
+      return "This Year";
     default:
       return null;
   }
@@ -57,7 +70,8 @@ const Categories = ({ timePeriod }) => {
           name={getIcon(domain.domain)}
           style={{
             marginRight: 10,
-            color: "#97a5bc"
+            color: "#97a5bc",
+            height: "100%"
           }}
         />
         <View style={{ flex: 1, marginRight: 10 }}>
@@ -68,7 +82,7 @@ const Categories = ({ timePeriod }) => {
             </Text>
           </View>
           <View style={styles.dataRow}>
-            <Text style={{ color: "#97a5bc" }}>This Month</Text>
+            <Text style={{ color: "#97a5bc" }}>{getTime(timePeriod)}</Text>
             <View style={{ flexDirection: "row" }}>
               <Text style={{ fontWeight: "bold" }}>{domain.co2Amount}kg </Text>
               <Text>CO2</Text>
@@ -81,6 +95,9 @@ const Categories = ({ timePeriod }) => {
   return (
     <>
       {status === STATUS.REQUEST && <Text>Loading...</Text>}
+      {status === STATUS.SUCCESS && domains.length === 0 && (
+        <View style={{ height: 0 }}></View>
+      )}
       {status === STATUS.SUCCESS && domains.length > 0 && (
         <View style={styles.container}>{showCategories()}</View>
       )}
@@ -92,8 +109,8 @@ const Categories = ({ timePeriod }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginLeft: 10,
-    marginRight: 10
+    marginLeft: 10
+    // marginRight: 10
   },
   categorieRow: {
     flexDirection: "row",

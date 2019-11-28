@@ -21,7 +21,8 @@ const reducer = (state, action) => {
 
 const initialState = {
   transactions: [],
-  status: STATUS.REQUEST
+  status: STATUS.REQUEST,
+  error: ""
 };
 
 const Transactions = ({ timePeriod }) => {
@@ -58,7 +59,7 @@ const Transactions = ({ timePeriod }) => {
         })
         .catch(error => console.log(error))
     );
-  }, []);
+  }, [timePeriod]);
 
   const transactionsByDate = [
     ...state.transactions
@@ -108,6 +109,8 @@ const Transactions = ({ timePeriod }) => {
         </View>
       </View>
     ));
+
+  console.log(timePeriod);
 
   return (
     <>

@@ -5,6 +5,8 @@ import { STATUS } from "../../utils";
 import config from "../../config";
 import { listByDomainUrl } from "../../api/listByDomain";
 
+import DataChart from "./DataChart-VictoryChart";
+
 const getTime = timePeriod => {
   switch (timePeriod) {
     case "Weekly":
@@ -50,6 +52,8 @@ const EmissionSummary = ({ timePeriod }) => {
   );
 
   return (
+    // <View style={styles.container}>
+    // </View>
     <>
       {status === STATUS.REQUEST && <Text>Loading...</Text>}
       {status === STATUS.SUCCESS && amountPerDomain.length === 0 && (
@@ -66,13 +70,16 @@ const EmissionSummary = ({ timePeriod }) => {
       )}
       {status === STATUS.SUCCESS && amountPerDomain.length > 0 && (
         <View style={styles.container}>
-          <Text style={{ textTransform: "uppercase", color: "white" }}>
-            {getTime(timePeriod)}
-          </Text>
-          {showTotalAmount()}
-          <View style={{ flexDirection: "row" }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>Kg</Text>
-            <Text style={{ color: "white" }}> CO2e</Text>
+          <DataChart style={{ flex: 1 }} />
+          <View style={styles.dataText}>
+            <Text style={{ textTransform: "uppercase", color: "white" }}>
+              {getTime(timePeriod)}
+            </Text>
+            {showTotalAmount()}
+            <View style={{ flexDirection: "row" }}>
+              <Text style={{ color: "white", fontWeight: "bold" }}>Kg</Text>
+              <Text style={{ color: "white" }}> CO2e</Text>
+            </View>
           </View>
         </View>
       )}
@@ -84,7 +91,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: -100
+  },
+  dataText: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    marginTop: -100
   }
 });
 

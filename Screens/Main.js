@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    minHeight: 300
+    minHeight: 400
   },
   detailedData: {
     flex: 1,
