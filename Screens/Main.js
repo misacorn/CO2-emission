@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -13,6 +13,7 @@ import { Dropdown } from "react-native-material-dropdown";
 import backSkyImage from "../assets/backskyimage.png";
 import profileIcon from "../assets/icons/profile-icon.png";
 
+import EmissionSummary from "../components/mainPage/EmissionSummary";
 import TipCard from "../components/mainPage/TipCard";
 import EmissionTab from "../navigation/EmissionTab";
 
@@ -52,7 +53,7 @@ const Main = ({ navigation }) => {
             />
           </View>
           <View style={styles.summaryData}>
-            <Text>Heluuuu</Text>
+            <EmissionSummary timePeriod={value} />
           </View>
           <View style={styles.detailedData}>
             <TipCard navigation={navigation} />
