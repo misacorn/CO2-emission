@@ -18,7 +18,8 @@ const TipCard = ({ navigation }) => {
             style={{
               fontSize: 16,
               color: "rgb(25, 25, 25)",
-              fontWeight: "600"
+              fontWeight: "600",
+              marginBottom: 5
             }}
           >
             #100smartways
@@ -36,8 +37,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    // position: "absolute",
- //   marginTop: 25,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "transparent",
@@ -46,10 +45,8 @@ const styles = StyleSheet.create({
     shadowColor: "rgba(41, 50, 60, 0.15)",
     shadowRadius: 5,
     shadowOpacity: 5,
-    padding: 20,
-    minHeight: 120
+    padding: 20
   },
-  cardContainer: {},
   tipImage: {
     padding: 10,
     width: 110
