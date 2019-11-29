@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Icon } from "native-base";
 import moment from "moment";
@@ -6,30 +6,6 @@ import moment from "moment";
 import { STATUS } from "../../utils";
 import config from "../../config";
 import { transactionsByDomain } from "../../api/transactionsByDomain";
-
-const initialState = {
-  transactions: [],
-  status: STATUS.REQUEST,
-  error: ""
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "ADD":
-      return {
-        transactions: [...state.transactions, ...action.transactions]
-      };
-    case "RESET":
-      return initialState;
-    case "SUCCESS_STATUS":
-      return {
-        ...state,
-        status: STATUS.SUCCESS
-      };
-    default:
-      return state;
-  }
-};
 
 const Transactions = ({ timePeriod }) => {
   const domains = [
@@ -41,11 +17,11 @@ const Transactions = ({ timePeriod }) => {
     "Leisure"
   ];
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [transactions, setTransactions] = useState([]);
+  const [status, setStatus] = useState(STATUS.REQUEST);
 
   useEffect(() => {
-    dispatch({ type: "RESET" });
-
+    setTransactions([]);
     const urls = domains.map(domain =>
       transactionsByDomain(timePeriod, domain)
     );
@@ -59,20 +35,18 @@ const Transactions = ({ timePeriod }) => {
       })
         .then(res => res.json())
         .then(res => {
-          dispatch({
-            type: "ADD",
-            transactions: res.listbyTransaction
-          });
+          setTransactions(transactions => [
+            ...transactions,
+            ...res.listbyTransaction
+          ]);
         })
-        .then(() =>
-          dispatch({ type: "SUCCESS_STATUS", status: STATUS.SUCCESS })
-        )
+        .then(() => setStatus(STATUS.SUCCESS))
         .catch(error => console.log(error))
     );
   }, [timePeriod]);
 
   const transactionsByDate = [
-    ...state.transactions
+    ...transactions
       .reduce((r, o) => {
         const key = o.merchantName + "-" + o.createdTime.substring(0, 10);
 
@@ -89,7 +63,15 @@ const Transactions = ({ timePeriod }) => {
         return r.set(key, item);
       }, new Map())
       .values()
-  ];
+  ].sort((a, b) =>
+    a.createdTime < b.createdTime
+      ? 1
+      : a.createdTime === b.createdTime
+      ? a.merchantName > b.merchantName
+        ? 1
+        : -1
+      : -1
+  );
 
   const showTransactions = () =>
     transactionsByDate.map(t => (
@@ -122,11 +104,11 @@ const Transactions = ({ timePeriod }) => {
 
   return (
     <>
-      {state.status === STATUS.REQUEST && <Text>Loading...</Text>}
-      {state.status === STATUS.SUCCESS && state.transactions.length > 0 && (
+      {status === STATUS.REQUEST && <Text>Loading...</Text>}
+      {status === STATUS.SUCCESS && transactions.length > 0 && (
         <View style={styles.container}>{showTransactions()}</View>
       )}
-      {state.status === STATUS.ERROR && <Text className="error">{error}</Text>}
+      {status === STATUS.ERROR && <Text className="error">{error}</Text>}
     </>
   );
 };
