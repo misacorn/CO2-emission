@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingLeft: 20,
     marginTop: 10,
-    marginRight: "auto",
+    // marginRight: "auto",
     marginBottom: 25
   }
 });

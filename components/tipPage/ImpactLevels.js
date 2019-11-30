@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { Container, Tabs, Tab, TabHeading, Icon } from "native-base";
+import { Icon } from "native-base";
 
 import fullGlobe from "../../assets/icons/full-globe.png";
 import halfGlobe from "../../assets/icons/half-globe.png";
@@ -58,7 +58,8 @@ const ImpactLevels = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 110
+    marginTop: 110,
+    height: "100%"
   },
   challenges: {
     marginLeft: 40,

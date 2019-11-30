@@ -73,13 +73,15 @@ const TipTab = ({ impact }) => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 20,
-    marginRight: "auto",
     marginBottom: 20,
     width: "95%",
     position: "absolute",
     zIndex: -1,
-    marginTop: -80
+    marginTop: -80,
+    //height: "100%"
   }
 });
 

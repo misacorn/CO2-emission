@@ -41,7 +41,8 @@ const Tips = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 25
+    margin: 25,
+    marginRight: 5
   },
   backToMain: {
     flex: 1,
