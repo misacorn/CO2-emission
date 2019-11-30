@@ -1,16 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { View } from "react-native";
-import {
-  Container,
-  Content,
-  Text,
-  StyleProvider,
-  Tabs,
-  Tab,
-  TabHeading,
-  Icon
-} from "native-base";
+import { Container, Tabs, Tab, TabHeading, Icon } from "native-base";
 
 import Housing from "../components/tipPage/Housing";
 import Food from "../components/tipPage/Food";
@@ -19,7 +9,7 @@ import Services from "../components/tipPage/Services";
 import Mobility from "../components/tipPage/Mobility";
 import Leisure from "../components/tipPage/Leisure";
 
-const TipTab = () => (
+const TipTab = ({ impact }) => (
   <Container style={styles.container}>
     <Tabs tabBarUnderlineStyle={{ backgroundColor: "transparent" }}>
       <Tab
@@ -29,7 +19,7 @@ const TipTab = () => (
           </TabHeading>
         }
       >
-        <Housing />
+        <Housing impact={impact} />
       </Tab>
       <Tab
         heading={
@@ -83,8 +73,6 @@ const TipTab = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: "center",
-    // alignItems: "center",
     marginTop: 20,
     marginRight: "auto",
     marginBottom: 20,
@@ -92,7 +80,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: -1,
     marginTop: -80
-    // maxHeight: 60
   }
 });
 
