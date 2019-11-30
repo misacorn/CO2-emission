@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     flex: 2,
     alignItems: "center",
     backgroundColor: "white",
-    marginTop: -70,
+    marginTop: -75,
     zIndex: -1
   },
   dataContainer: {

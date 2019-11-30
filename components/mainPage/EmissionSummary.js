@@ -66,7 +66,7 @@ const EmissionSummary = ({ timePeriod }) => {
       )}
       {status === STATUS.SUCCESS && amountPerDomain.length > 0 && (
         <View style={styles.container}>
-          <DataChart />
+          <DataChart amountPerDomain={amountPerDomain} />
           <View style={styles.dataText}>
             <Text style={{ textTransform: "uppercase", color: "white" }}>
               {getTime(timePeriod)}

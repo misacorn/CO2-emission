@@ -1,20 +1,18 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { Icon } from "native-base";
 import { VictoryPie, VictoryLabel } from "victory-native";
 
-const DataChart = () => {
+const DataChart = ({ amountPerDomain }) => {
+  const newData = amountPerDomain.map(a => ({
+    x: a.domain,
+    y: a.co2Amount
+  }));
+
   return (
     <View style={styles.container}>
       <VictoryPie
-        data={[
-          { x: "Cats", y: 70 },
-          { x: "Dogs", y: 25 },
-          { x: "Dogs", y: 60 },
-          { x: "Dogs", y: 10 },
-          { x: "Dogs", y: 40 },
-          { x: "Birds", y: 55 }
-        ]}
+        data={newData}
         height={350}
         innerRadius={100}
         labelComponent={<VictoryLabel />}
@@ -23,7 +21,6 @@ const DataChart = () => {
         startAngle={90}
         endAngle={450}
         colorScale={["white", "white", "white", "white", "white", "white"]}
-        labels={({ datum }) => `y: ${datum.y}`}
       />
     </View>
   );
@@ -32,7 +29,6 @@ const DataChart = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1
-    // marginTop: 25
   }
 });
 
