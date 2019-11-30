@@ -1,18 +1,20 @@
 import React from "react";
+import { View, Text, Image, StyleSheet } from "react-native";
 import { Container, Content, Icon } from "native-base";
 
 const Goods = () => {
   return (
-    <Container style={{ flex: 1 }}>
-      <Content>
-        <Icon
-          type="FontAwesome"
-          name="shopping-cart"
-          style={{ color: "#97A5BC" }}
-        />
-      </Content>
-    </Container>
+    <View style={styles.container}>
+      <Text>Goods</Text>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 150
+  }
+});
 
 export default Goods;

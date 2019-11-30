@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
+import { View } from "react-native";
 import {
   Container,
   Content,
@@ -11,7 +12,14 @@ import {
   Icon
 } from "native-base";
 
-const ThemeExample = () => (
+import Housing from "../components/tipPage/Housing";
+import Food from "../components/tipPage/Food";
+import Goods from "../components/tipPage/Goods";
+import Services from "../components/tipPage/Services";
+import Mobility from "../components/tipPage/Mobility";
+import Leisure from "../components/tipPage/Leisure";
+
+const TipTab = () => (
   <Container style={styles.container}>
     <Tabs tabBarUnderlineStyle={{ backgroundColor: "transparent" }}>
       <Tab
@@ -20,42 +28,54 @@ const ThemeExample = () => (
             <Icon type="FontAwesome" name="home" />
           </TabHeading>
         }
-      ></Tab>
+      >
+        <Housing />
+      </Tab>
       <Tab
         heading={
           <TabHeading>
             <Icon type="FontAwesome" name="cutlery" />
           </TabHeading>
         }
-      ></Tab>
+      >
+        <Food />
+      </Tab>
       <Tab
         heading={
           <TabHeading>
             <Icon type="FontAwesome" name="car" />
           </TabHeading>
         }
-      ></Tab>
+      >
+        <Mobility />
+      </Tab>
       <Tab
         heading={
           <TabHeading>
             <Icon type="FontAwesome" name="shopping-cart" />
           </TabHeading>
         }
-      ></Tab>
+      >
+        <Goods />
+      </Tab>
       <Tab
         heading={
           <TabHeading>
             <Icon type="FontAwesome" name="plane" />
           </TabHeading>
         }
-      ></Tab>
+      >
+        <Leisure />
+      </Tab>
       <Tab
         heading={
           <TabHeading>
             <Icon type="FontAwesome" name="gift" />
           </TabHeading>
         }
-      ></Tab>
+      >
+        <Services />
+      </Tab>
     </Tabs>
   </Container>
 );
@@ -63,14 +83,17 @@ const ThemeExample = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
     marginTop: 20,
     marginRight: "auto",
     marginBottom: 20,
     width: "95%",
-    maxHeight: 60
+    position: "absolute",
+    zIndex: -1,
+    marginTop: -80
+    // maxHeight: 60
   }
 });
 
-export default ThemeExample;
+export default TipTab;

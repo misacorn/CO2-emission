@@ -9,7 +9,7 @@ import {
 import { Icon } from "native-base";
 
 import TipTab from "../navigation/TipTab";
-import Challenges from "../components/tipPage/Challenges";
+import ImpactLevels from "../components/tipPage/ImpactLevels";
 
 const Tips = ({ navigation }) => {
   return (
@@ -33,7 +33,7 @@ const Tips = ({ navigation }) => {
         </TouchableOpacity>
         <View style={styles.tips}>
           <TipTab />
-          <Challenges />
+          <ImpactLevels />
         </View>
       </View>
     </ScrollView>
@@ -43,8 +43,6 @@ const Tips = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     margin: 25
   },
   backToMain: {
