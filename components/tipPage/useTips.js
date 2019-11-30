@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
 
 import config from "../../config";
 
@@ -27,14 +26,5 @@ export const useTips = (impact, url) => {
     ? allTips
     : allTips.filter(tip => tip.impactLevel === impact);
 
-  const showTips = () =>
-    filteredTips.map(tip =>
-      tip.smartTips.map(t => (
-        <View key={t.externalId}>
-          <Text>{t.tip}</Text>
-        </View>
-      ))
-    );
-
-  return { showTips };
+  return { filteredTips };
 };

@@ -51,7 +51,7 @@ const ImpactLevels = () => {
           </TouchableOpacity>
         </TouchableOpacity>
       </View>
-      <TipTab />
+      <TipTab impact={impact} />
     </View>
   );
 };

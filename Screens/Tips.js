@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import { Icon } from "native-base";
 
-import TipTab from "../navigation/TipTab";
 import ImpactLevels from "../components/tipPage/ImpactLevels";
 
 const Tips = ({ navigation }) => {
@@ -32,7 +31,6 @@ const Tips = ({ navigation }) => {
           </View>
         </TouchableOpacity>
         <View style={styles.tips}>
-          <TipTab />
           <ImpactLevels />
         </View>
       </View>

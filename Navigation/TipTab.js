@@ -28,7 +28,7 @@ const TipTab = ({ impact }) => (
           </TabHeading>
         }
       >
-        <Food />
+        <Food impact={impact} />
       </Tab>
       <Tab
         heading={
@@ -37,7 +37,7 @@ const TipTab = ({ impact }) => (
           </TabHeading>
         }
       >
-        <Mobility />
+        <Mobility impact={impact} />
       </Tab>
       <Tab
         heading={
@@ -46,7 +46,7 @@ const TipTab = ({ impact }) => (
           </TabHeading>
         }
       >
-        <Goods />
+        <Goods impact={impact} />
       </Tab>
       <Tab
         heading={
@@ -55,7 +55,7 @@ const TipTab = ({ impact }) => (
           </TabHeading>
         }
       >
-        <Leisure />
+        <Leisure impact={impact} />
       </Tab>
       <Tab
         heading={
@@ -64,7 +64,7 @@ const TipTab = ({ impact }) => (
           </TabHeading>
         }
       >
-        <Services />
+        <Services impact={impact} />
       </Tab>
     </Tabs>
   </Container>
