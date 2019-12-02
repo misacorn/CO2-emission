@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     margin: 25,
+    marginTop: 50,
     marginRight: 5
   },
   backToMain: {

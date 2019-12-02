@@ -38,9 +38,17 @@ const Main = ({ navigation }) => {
       >
         <View style={styles.container}>
           <View style={styles.navbar}>
-            <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-              <Image style={{ width: 40, height: 40 }} source={profileIcon} />
-            </TouchableOpacity>
+            <View style={{ flex: 1 }}>
+              <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+                <View>
+                  <Image
+                    style={{ width: 40, height: 40 }}
+                    source={profileIcon}
+                  />
+                  <View style={styles.circle} />
+                </View>
+              </TouchableOpacity>
+            </View>
             <Dropdown
               data={data}
               value={value}
@@ -49,7 +57,9 @@ const Main = ({ navigation }) => {
               containerStyle={styles.dropdown}
               onChangeText={value => setValue(value)}
               inputContainerStyle={{ borderBottomColor: "transparent" }}
+              textColor="#97a5bc"
             />
+            <View style={styles.oval} />
           </View>
           <View style={styles.summaryData}>
             <EmissionSummary timePeriod={value} />
@@ -70,13 +80,23 @@ export default Main;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    marginTop: 25
   },
   navbar: {
     flex: 1,
     padding: 25,
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  circle: {
+    marginTop: 5,
+    width: 38,
+    height: 38,
+    borderRadius: 100 / 2,
+    backgroundColor: "white",
+    zIndex: -1,
+    position: "absolute"
   },
   dropdown: {
     width: "25%",
@@ -86,6 +106,17 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     marginTop: 60,
     width: "25%"
+  },
+  oval: {
+    width: 100,
+    height: 30,
+    borderRadius: 20,
+    backgroundColor: "white",
+    transform: [{ scaleX: 1 }],
+    position: "absolute",
+    zIndex: -1,
+    marginLeft: 290,
+    marginTop: 25
   },
   summaryData: {
     flex: 2,

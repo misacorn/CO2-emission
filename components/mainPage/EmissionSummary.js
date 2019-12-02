@@ -51,7 +51,11 @@ const EmissionSummary = ({ timePeriod }) => {
 
   return (
     <>
-      {status === STATUS.REQUEST && <Text>Loading...</Text>}
+      {status === STATUS.REQUEST && (
+        <View style={[styles.container, { minHeight: 350 }]}>
+          <Text>Loading...</Text>
+        </View>
+      )}
       {status === STATUS.SUCCESS && amountPerDomain.length === 0 && (
         <View style={[styles.container, { minHeight: 350 }]}>
           <Text style={{ textTransform: "uppercase", color: "white" }}>

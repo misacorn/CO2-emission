@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    margin: 25
+    padding: 25,
+    marginTop: 25
   },
   arrowBack: {
     flex: 1,
