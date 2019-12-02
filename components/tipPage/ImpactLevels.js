@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Icon } from "native-base";
 
-import fullGlobe from "../../assets/icons/full-globe.png";
-import halfGlobe from "../../assets/icons/half-globe.png";
-import smallGlobe from "../../assets/icons/small-globe.png";
+import fullGlobe from "../../assets/full-globe.png";
+import halfGlobe from "../../assets/half-globe.png";
+import smallGlobe from "../../assets/small-globe.png";
 
 import TipTab from "../../navigation/TipTab";
 
@@ -59,7 +59,8 @@ const ImpactLevels = () => {
 const styles = StyleSheet.create({
   container: {
     marginTop: 110,
-    height: "100%"
+    height: "100%",
+    minHeight: 700
   },
   challenges: {
     marginLeft: 40,
