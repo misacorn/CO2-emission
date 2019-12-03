@@ -5,7 +5,9 @@ import {
   ImageBackground,
   ScrollView,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions,
+  Platform
 } from "react-native";
 import { Dropdown } from "react-native-material-dropdown";
 
@@ -15,6 +17,9 @@ import profileIcon from "../assets/icons/profile-icon.png";
 import EmissionSummary from "../components/mainPage/EmissionSummary";
 import TipCard from "../components/mainPage/TipCard";
 import EmissionTab from "../navigation/EmissionTab";
+
+const screenWidth = Math.round(Dimensions.get("window").width);
+const screenHeight = Math.round(Dimensions.get("window").height);
 
 const Main = ({ navigation }) => {
   const data = [
@@ -29,6 +34,52 @@ const Main = ({ navigation }) => {
     }
   ];
   const [value, setValue] = useState(data[1].value);
+
+  const showEmission = () =>
+    Platform.OS === "android" ? (
+      <View>
+        <View style={styles.summaryData}>
+          <EmissionSummary timePeriod={value} />
+        </View>
+        <View
+          style={[
+            styles.detailedData,
+            screenWidth > 500 && {
+              width: screenWidth * 0.8,
+              marginLeft: "auto",
+              marginRight: "auto"
+            }
+          ]}
+        >
+          <TipCard navigation={navigation} />
+          <View>
+            <EmissionTab timePeriod={value} />
+          </View>
+        </View>
+      </View>
+    ) : (
+      <View>
+        <View style={styles.summaryData}>
+          <EmissionSummary timePeriod={value} />
+          <TipCard navigation={navigation} />
+        </View>
+        <View
+          style={[
+            styles.detailedData,
+            screenWidth > 500 && {
+              width: screenWidth * 0.8,
+              marginLeft: "auto",
+              marginRight: "auto"
+            },
+            { marginTop: -100, zIndex: -1 }
+          ]}
+        >
+          <View style={styles.dataContainer}>
+            <EmissionTab timePeriod={value} />
+          </View>
+        </View>
+      </View>
+    );
 
   return (
     <ScrollView>
@@ -49,27 +100,21 @@ const Main = ({ navigation }) => {
                 </View>
               </TouchableOpacity>
             </View>
-            <Dropdown
-              data={data}
-              value={value}
-              pickerStyle={styles.picker}
-              dropdownOffset={{ top: 0, left: 0 }}
-              containerStyle={styles.dropdown}
-              onChangeText={value => setValue(value)}
-              inputContainerStyle={{ borderBottomColor: "transparent" }}
-              textColor="#97a5bc"
-            />
-            <View style={styles.oval} />
-          </View>
-          <View style={styles.summaryData}>
-            <EmissionSummary timePeriod={value} />
-            <TipCard navigation={navigation} />
-          </View>
-          <View style={styles.detailedData}>
-            <View style={styles.dataContainer}>
-              <EmissionTab timePeriod={value} />
+            <View style={styles.oval}>
+              <Dropdown
+                data={data}
+                value={value}
+                pickerStyle={styles.picker}
+                dropdownOffset={{ top: 0, left: 0 }}
+                containerStyle={styles.dropdown}
+                onChangeText={value => setValue(value)}
+                inputContainerStyle={{ borderBottomColor: "transparent" }}
+                textColor="#97a5bc"
+              />
             </View>
           </View>
+
+          {showEmission()}
         </View>
       </ImageBackground>
     </ScrollView>
@@ -99,8 +144,9 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   dropdown: {
-    width: "25%",
-    borderColor: "white"
+    borderColor: "white",
+    width: screenWidth * 0.25,
+    marginLeft: 5
   },
   picker: {
     borderWidth: 0,
@@ -108,31 +154,32 @@ const styles = StyleSheet.create({
     width: "25%"
   },
   oval: {
-    width: 100,
+    flex: 1,
     height: 30,
     borderRadius: 20,
     backgroundColor: "white",
     transform: [{ scaleX: 1 }],
-    position: "absolute",
-    zIndex: -1,
-    marginLeft: 290,
-    marginTop: 25
+    maxWidth: 110,
+    marginTop: 5
   },
   summaryData: {
     flex: 2,
     justifyContent: "center",
     alignItems: "center",
-    minHeight: 500,
-    marginTop: -50
+    minHeight: screenHeight * 0.5,
+    margin: 25,
+    marginTop: -50,
+    marginBottom: 50
   },
   detailedData: {
     flex: 2,
     alignItems: "center",
-    backgroundColor: "white",
-    marginTop: -75,
-    zIndex: -1
+    justifyContent: "center",
+    backgroundColor: "white"
+    // marginTop: -75,
+    // zIndex: Platform.OS === "ios" ? -1 : 1
   },
   dataContainer: {
-    marginTop: 70
+    marginTop: 50
   }
 });
