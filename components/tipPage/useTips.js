@@ -71,10 +71,11 @@ export const useTips = (impact, url) => {
       borderRadius: 10,
       borderColor: "transparent",
       backgroundColor: "#ffffff",
-      shadowOffset: { width: 1, height: 1 },
+      shadowOffset: { width: 1, height: 2 },
       shadowColor: "rgba(41, 50, 60, 0.15)",
       shadowRadius: 5,
-      shadowOpacity: 5
+      shadowOpacity: 5,
+      elevation: 2
     },
     thumnail: {
       flex: 1,

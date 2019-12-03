@@ -48,12 +48,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "transparent",
-    backgroundColor: "white",
-    shadowOffset: { width: 0, height: 1 },
+    borderColor: "#ffffff",
+    backgroundColor: "#ffffff",
+    shadowOffset: { width: 0, height: 2 },
     shadowColor: "rgba(41, 50, 60, 0.15)",
     shadowRadius: 5,
     shadowOpacity: 5,
+    elevation: 2,
     padding: 20
   },
   tipImage: {

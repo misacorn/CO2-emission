@@ -11,7 +11,12 @@ import Leisure from "../components/tipPage/Leisure";
 
 const TipTab = ({ impact }) => (
   <Container style={styles.container}>
-    <Tabs tabBarUnderlineStyle={{ backgroundColor: "transparent" }}>
+    <Tabs
+      tabBarUnderlineStyle={{ backgroundColor: "transparent" }}
+      tabContainerStyle={{
+        elevation: 0
+      }}
+    >
       <Tab
         heading={
           <TabHeading>
@@ -80,7 +85,7 @@ const styles = StyleSheet.create({
     width: "95%",
     position: "absolute",
     zIndex: -1,
-    marginTop: -80,
+    marginTop: -80
     //height: "100%"
   }
 });
