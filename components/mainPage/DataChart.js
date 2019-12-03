@@ -1,6 +1,5 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
-import { Icon } from "native-base";
 import { VictoryPie, VictoryLabel } from "victory-native";
 
 const DataChart = ({ amountPerDomain }) => {
@@ -15,7 +14,7 @@ const DataChart = ({ amountPerDomain }) => {
         data={newData}
         height={350}
         innerRadius={100}
-        labelComponent={<VictoryLabel />}
+        labelComponent={<VictoryLabel style={{ color: "#97a5bc" }} />}
         labelRadius={({ innerRadius }) => innerRadius + 5}
         padAngle={3}
         startAngle={90}

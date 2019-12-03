@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { Spinner } from "native-base";
 
 import { STATUS } from "../../utils";
 import config from "../../config";
@@ -53,7 +54,7 @@ const EmissionSummary = ({ timePeriod }) => {
     <>
       {status === STATUS.REQUEST && (
         <View style={[styles.container, { minHeight: 350 }]}>
-          <Text>Loading...</Text>
+          <Spinner color="blue" />
         </View>
       )}
       {status === STATUS.SUCCESS && amountPerDomain.length === 0 && (

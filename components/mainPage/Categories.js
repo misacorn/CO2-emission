@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Icon } from "native-base";
+import { Icon, Spinner } from "native-base";
 
 import { STATUS } from "../../utils";
 import config from "../../config";
@@ -94,7 +94,11 @@ const Categories = ({ timePeriod }) => {
 
   return (
     <>
-      {status === STATUS.REQUEST && <Text>Loading...</Text>}
+      {status === STATUS.REQUEST && (
+        <View style={styles.container}>
+          <Spinner color="blue" />
+        </View>
+      )}
       {status === STATUS.SUCCESS && domains.length === 0 && <View />}
       {status === STATUS.SUCCESS && domains.length > 0 && (
         <View style={styles.container}>{showCategories()}</View>

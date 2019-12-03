@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Icon } from "native-base";
+import { Icon, Spinner } from "native-base";
 import moment from "moment";
 
 import { STATUS } from "../../utils";
@@ -104,7 +104,11 @@ const Transactions = ({ timePeriod }) => {
 
   return (
     <>
-      {status === STATUS.REQUEST && <Text>Loading...</Text>}
+      {status === STATUS.REQUEST && (
+        <View style={styles.container}>
+          <Spinner color="blue" />
+        </View>
+      )}
       {status === STATUS.SUCCESS && transactions.length > 0 && (
         <View style={styles.container}>{showTransactions()}</View>
       )}
