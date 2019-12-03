@@ -68,11 +68,9 @@ export const useTips = (impact, url) => {
     tipCards: {
       flexDirection: "row",
       marginBottom: 20,
-      minHeight: 120,
       borderRadius: 10,
-      borderWidth: 1,
       borderColor: "transparent",
-      backgroundColor: "white",
+      backgroundColor: "#ffffff",
       shadowOffset: { width: 1, height: 1 },
       shadowColor: "rgba(41, 50, 60, 0.15)",
       shadowRadius: 5,
@@ -87,7 +85,8 @@ export const useTips = (impact, url) => {
     texts: { flex: 2, padding: 10 },
     title: {
       fontSize: 16,
-      fontWeight: "600"
+      fontWeight: "600",
+      marginBottom: 5
     },
     previewText: {
       color: "#97a5bc",

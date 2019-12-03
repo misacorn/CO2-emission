@@ -95,9 +95,7 @@ const Categories = ({ timePeriod }) => {
   return (
     <>
       {status === STATUS.REQUEST && <Text>Loading...</Text>}
-      {status === STATUS.SUCCESS && domains.length === 0 && (
-        <View style={{ height: 0 }}></View>
-      )}
+      {status === STATUS.SUCCESS && domains.length === 0 && <View />}
       {status === STATUS.SUCCESS && domains.length > 0 && (
         <View style={styles.container}>{showCategories()}</View>
       )}
@@ -110,18 +108,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginLeft: 10
-    // marginRight: 10
   },
   categorieRow: {
     flexDirection: "row",
     marginTop: 10,
     paddingTop: 10,
-    paddingBottom: 10,
-    minHeight: 60
+    paddingBottom: 10
   },
   dataRow: {
     justifyContent: "space-between",
-    // width: "100%",
     flex: 1,
     flexDirection: "row"
   }

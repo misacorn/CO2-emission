@@ -1,7 +1,16 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions
+} from "react-native";
 
 import hiking from "../../assets/hiking.png";
+
+const screenWidth = Math.round(Dimensions.get("window").width);
 
 const TipCard = ({ navigation }) => {
   return (
@@ -52,7 +61,7 @@ const styles = StyleSheet.create({
     width: 110
   },
   tipText: {
-    maxWidth: 220,
+    maxWidth: screenWidth * 0.5,
     textAlign: "justify"
   }
 });

@@ -20,11 +20,13 @@ const EmissionDetails = ({ timePeriod }) => {
     <StyleProvider style={getTheme(material)}>
       <Container style={styles.container}>
         <Tabs
+          initialPage={0}
           style={{ marginLeft: 10, marginRight: 10 }}
           tabBarUnderlineStyle={{ backgroundColor: "#191919" }}
           tabContainerStyle={{
             borderBottomWidth: 1,
-            borderBottomColor: "#97a5bc"
+            borderBottomColor: "#97a5bc",
+            elevation: 0
           }}
         >
           <Tab
@@ -53,13 +55,12 @@ const EmissionDetails = ({ timePeriod }) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
+    height: "auto",
     justifyContent: "center",
     alignItems: "center",
     paddingRight: 20,
     paddingLeft: 20,
     marginTop: 10,
-    // marginRight: "auto",
     marginBottom: 25
   }
 });

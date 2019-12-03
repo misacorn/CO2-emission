@@ -123,12 +123,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 10,
     paddingTop: 10,
-    paddingBottom: 10,
-    minHeight: 60
+    paddingBottom: 10
   },
   dataRow: {
     justifyContent: "space-between",
-    // width: "100%",
     flex: 1,
     flexDirection: "row"
   }
