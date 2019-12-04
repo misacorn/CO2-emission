@@ -16,7 +16,7 @@ import profileIcon from "../assets/icons/profile-icon.png";
 
 import EmissionSummary from "../components/mainPage/EmissionSummary";
 import TipCard from "../components/mainPage/TipCard";
-import EmissionTab from "../navigation/EmissionTab";
+import EmissionTab from "../navigations/EmissionTab";
 
 const screenWidth = Math.round(Dimensions.get("window").width);
 const screenHeight = Math.round(Dimensions.get("window").height);

@@ -1,5 +1,5 @@
 import React from "react";
-import AppContainer from "./navigation/Navigation";
+import AppContainer from "./navigations/Navigation";
 
 const App = () => {
   return <AppContainer />;

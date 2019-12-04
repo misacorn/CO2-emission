@@ -13,7 +13,7 @@ import fullGlobe from "../../assets/full-globe.png";
 import halfGlobe from "../../assets/half-globe.png";
 import smallGlobe from "../../assets/small-globe.png";
 
-import TipTab from "../../navigation/TipTab";
+import TipTab from "../../navigations/TipTab";
 
 const screenHeight = Math.round(Dimensions.get("window").height);
 
